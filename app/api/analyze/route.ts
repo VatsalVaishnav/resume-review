@@ -1,10 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import Groq from "groq-sdk";
 import mammoth from "mammoth";
 import pdfParse from "pdf-parse";
 
-// Initialize Gemini AI
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "");
+// Initialize Groq AI
+const groq = new Groq({
+  apiKey: process.env.GROQ_API_KEY || "",
+});
 
 // Store analysis results in memory (in production, use a database)
 const analysisCache = new Map<string, any>();
@@ -76,16 +78,30 @@ Evaluation Criteria:
 
 Provide specific, actionable feedback. Be constructive and professional. Return ONLY valid JSON, no additional text.`;
 
-  // Try models in order of preference with fallback
-  const modelsToTry = ["gemini-pro", "gemini-1.5-pro"];
+  // Using llama-3.1-8b-instant - fast and efficient model
+  const modelsToTry = ["llama-3.1-8b-instant"];
   let lastError: Error | null = null;
 
   for (const modelName of modelsToTry) {
     try {
-      const model = genAI.getGenerativeModel({ model: modelName });
-      const result = await model.generateContent(prompt);
-      const response = await result.response;
-      const text = response.text();
+      const chatCompletion = await groq.chat.completions.create({
+        messages: [
+          {
+            role: "user",
+            content: prompt,
+          },
+        ],
+        model: modelName,
+        temperature: 0.7,
+        max_tokens: 2000,
+        response_format: { type: "json_object" }, // Request JSON response
+      });
+
+      const text = chatCompletion.choices[0]?.message?.content || "";
+
+      if (!text) {
+        throw new Error("Empty response from Groq API");
+      }
 
       // Extract JSON from response (handle cases where AI adds markdown formatting)
       let jsonText = text.trim();
@@ -127,7 +143,7 @@ Provide specific, actionable feedback. Be constructive and professional. Return 
     } catch (error) {
       // If this is a model not found error, try next model
       const errorMessage = error instanceof Error ? error.message : String(error);
-      if (errorMessage.includes("not found") || errorMessage.includes("404")) {
+      if (errorMessage.includes("not found") || errorMessage.includes("404") || errorMessage.includes("model")) {
         console.warn(`Model ${modelName} not available, trying next model...`);
         lastError = error instanceof Error ? error : new Error(errorMessage);
         continue;
@@ -145,9 +161,9 @@ Provide specific, actionable feedback. Be constructive and professional. Return 
 export async function POST(request: NextRequest) {
   try {
     // Check for API key
-    if (!process.env.GEMINI_API_KEY) {
+    if (!process.env.GROQ_API_KEY) {
       return NextResponse.json(
-        { error: "Gemini API key not configured. Please set GEMINI_API_KEY environment variable." },
+        { error: "Groq API key not configured. Please set GROQ_API_KEY environment variable." },
         { status: 500 }
       );
     }
@@ -198,7 +214,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Analyze with Gemini AI
+    // Analyze with Groq AI
     const analysis = await analyzeResumeWithAI(resumeText);
 
     // Store analysis with unique ID

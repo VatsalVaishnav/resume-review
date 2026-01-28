@@ -180,7 +180,7 @@ export default function Home() {
       <footer className="container mx-auto px-4 py-12 border-t border-gray-200">
         <div className="text-center text-gray-600">
           <p className="mb-2">© 2026 ResumeAI. All rights reserved.</p>
-          <p className="text-sm">Powered by Google Gemini AI</p>
+          <p className="text-sm">Powered by Groq AI</p>
         </div>
       </footer>
     </div>

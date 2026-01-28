@@ -9,19 +9,20 @@ cd resume-review
 npm install
 ```
 
-### 2. Get Gemini API Key
+### 2. Get Groq API Key
 
-1. Visit [Google AI Studio](https://makersuite.google.com/app/apikey)
-2. Sign in with your Google account
-3. Click "Create API Key"
-4. Copy your API key
+1. Visit [Groq Console](https://console.groq.com/keys)
+2. Sign in or create an account
+3. Navigate to API Keys section
+4. Click "Create API Key"
+5. Copy your API key
 
 ### 3. Configure Environment Variables
 
 Create a `.env.local` file in the `resume-review` directory:
 
 ```env
-GEMINI_API_KEY=your_api_key_here
+GROQ_API_KEY=your_api_key_here
 ```
 
 **Important**: Never commit your `.env.local` file to version control. It's already in `.gitignore`.
@@ -45,10 +46,10 @@ The application will be available at [http://localhost:3000](http://localhost:30
 
 ## Troubleshooting
 
-### "Gemini API key not configured" Error
+### "Groq API key not configured" Error
 
 - Ensure `.env.local` exists in the project root
-- Verify `GEMINI_API_KEY` is set correctly
+- Verify `GROQ_API_KEY` is set correctly
 - Restart the development server after adding environment variables
 
 ### "Failed to parse PDF/DOCX" Error
@@ -73,19 +74,19 @@ The application will be available at [http://localhost:3000](http://localhost:30
 
 1. Push your code to GitHub
 2. Import project in Vercel
-3. Add `GEMINI_API_KEY` in Vercel environment variables
+3. Add `GROQ_API_KEY` in Vercel environment variables
 4. Deploy
 
 ### Environment Variables in Production
 
-Make sure to set `GEMINI_API_KEY` in your hosting platform's environment variables section.
+Make sure to set `GROQ_API_KEY` in your hosting platform's environment variables section.
 
 ## Dependencies Overview
 
 - **Next.js 16**: React framework with App Router
 - **React 19**: UI library
 - **Tailwind CSS 4**: Utility-first CSS framework
-- **@google/generative-ai**: Gemini AI SDK
+- **groq-sdk**: Groq AI SDK
 - **pdf-parse**: PDF text extraction
 - **mammoth**: DOCX text extraction
 - **recharts**: Data visualization
@@ -98,8 +99,7 @@ Make sure to set `GEMINI_API_KEY` in your hosting platform's environment variabl
 
 ## API Rate Limits
 
-Be aware of Gemini API rate limits:
-- Free tier: Limited requests per minute
-- Paid tier: Higher limits available
-
-Check [Google AI Studio](https://makersuite.google.com/app/apikey) for current limits.
+Be aware of Groq API rate limits:
+- Free tier: Generous rate limits
+- Fast inference speeds with Llama models
+- Check [Groq Console](https://console.groq.com) for current limits and usage

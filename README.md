@@ -1,10 +1,10 @@
 # AI-Powered Resume Analyzer
 
-A modern, responsive web application that uses Google Gemini AI to analyze resumes and provide comprehensive feedback on ATS compatibility, keyword optimization, formatting, and overall quality.
+A modern, responsive web application that uses Groq AI to analyze resumes and provide comprehensive feedback on ATS compatibility, keyword optimization, formatting, and overall quality.
 
 ## Features
 
-- 🚀 **AI-Powered Analysis**: Uses Google Gemini AI for intelligent resume evaluation
+- 🚀 **AI-Powered Analysis**: Uses Groq AI (Llama models) for intelligent resume evaluation
 - 📄 **Multi-Format Support**: Upload resumes in PDF or DOCX format
 - 📊 **Comprehensive Scoring**: Get scores for ATS friendliness, keywords, formatting, experience, and skills
 - 💡 **Actionable Insights**: Receive specific suggestions to improve your resume
@@ -15,7 +15,7 @@ A modern, responsive web application that uses Google Gemini AI to analyze resum
 
 - **Frontend**: Next.js 16, React 19, Tailwind CSS 4
 - **Backend**: Next.js API Routes
-- **AI**: Google Gemini AI (gemini-pro)
+- **AI**: Groq AI (Llama 3 models)
 - **Resume Parsing**: 
   - `pdf-parse` for PDF files
   - `mammoth` for DOCX files
@@ -48,7 +48,7 @@ resume-review/
 ### Prerequisites
 
 - Node.js 18+ and npm/yarn/pnpm
-- Google Gemini API key ([Get one here](https://makersuite.google.com/app/apikey))
+- Groq API key ([Get one here](https://console.groq.com/keys))
 
 ### Installation
 
@@ -67,7 +67,7 @@ resume-review/
    
    Create a `.env.local` file in the root directory:
    ```env
-   GEMINI_API_KEY=your_gemini_api_key_here
+   GROQ_API_KEY=your_groq_api_key_here
    ```
 
 4. **Run the development server**:
