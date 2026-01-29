@@ -29,13 +29,18 @@ export default function Home() {
               ResumeAI
             </span>
           </div>
-          <Link
-            href="/upload"
-            className={`px-6 py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 font-medium shadow-lg hover:shadow-xl transform hover:scale-105 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-            style={{ transitionDelay: '0.1s' }}
-          >
-            Get Started
-          </Link>
+          <div className={`flex items-center gap-6 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`} style={{ transitionDelay: '0.1s' }}>
+            <Link href="/templates" className="text-gray-600 hover:text-blue-600 font-medium transition-colors">
+              Templates
+            </Link>
+            <Link
+              href="/upload"
+              className={`px-6 py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 font-medium shadow-lg hover:shadow-xl transform hover:scale-105 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+              style={{ transitionDelay: '0.1s' }}
+            >
+              Get Started
+            </Link>
+          </div>
         </div>
       </nav>
 
@@ -48,7 +53,7 @@ export default function Home() {
             </h1>
           </div>
           <p className={`text-xl md:text-2xl text-gray-700 mb-10 leading-relaxed transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '0.2s' }}>
-            Get instant, intelligent feedback on your resume. Optimize for ATS systems, 
+            Get instant, intelligent feedback on your resume. Optimize for ATS systems,
             improve keyword relevance, and increase your chances of landing interviews.
           </p>
           <div className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '0.4s' }}>
@@ -125,7 +130,7 @@ export default function Home() {
               <div className="flex-1">
                 <h3 className="text-2xl font-semibold mb-3 text-gray-800 group-hover:text-purple-600 transition-colors">AI Analysis</h3>
                 <p className="text-gray-600 text-lg leading-relaxed">
-                  Our advanced AI analyzes your resume for ATS compatibility, keyword optimization, 
+                  Our advanced AI analyzes your resume for ATS compatibility, keyword optimization,
                   formatting, and overall structure.
                 </p>
               </div>
@@ -137,7 +142,7 @@ export default function Home() {
               <div className="flex-1">
                 <h3 className="text-2xl font-semibold mb-3 text-gray-800 group-hover:text-pink-600 transition-colors">Get Your Report</h3>
                 <p className="text-gray-600 text-lg leading-relaxed">
-                  Receive a comprehensive score and detailed feedback with actionable suggestions 
+                  Receive a comprehensive score and detailed feedback with actionable suggestions
                   to improve your resume.
                 </p>
               </div>
@@ -223,7 +228,7 @@ export default function Home() {
         </div>
       </section>
 
-      
+
 
       {/* Footer */}
       <footer className="container mx-auto px-4 py-12 border-t border-gray-200 relative z-10 bg-white/50 backdrop-blur-sm">
