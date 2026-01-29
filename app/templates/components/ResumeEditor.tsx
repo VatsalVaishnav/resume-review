@@ -66,68 +66,68 @@ export default function ResumeEditor({ data, onChange }: EditorProps) {
                     {expandedSection === 'personal' && (
                         <div className="p-4 space-y-3 bg-white">
                             <div>
-                                <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Full Name</label>
+                                <label className="text-block text-xs font-semibold uppercase tracking-wider mb-1">Full Name</label>
                                 <input
                                     type="text"
                                     value={data.fullName}
                                     onChange={(e) => handleChange('fullName', e.target.value)}
-                                    className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-sm"
+                                    className="w-full text-black p-2 border rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 "
                                 />
                             </div>
                             <div>
-                                <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Job Title</label>
+                                <label className="text-block text-xs font-semibold uppercase tracking-wider mb-1">Job Title</label>
                                 <input
                                     type="text"
                                     value={data.title}
                                     onChange={(e) => handleChange('title', e.target.value)}
-                                    className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-sm"
+                                    className="w-full text-black p-2 border rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 "
                                 />
                             </div>
                             <div className="grid grid-cols-2 gap-3">
                                 <div>
-                                    <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Email</label>
+                                    <label className="text-block text-xs font-semibold uppercase tracking-wider mb-1">Email</label>
                                     <input
                                         type="email"
                                         value={data.email}
                                         onChange={(e) => handleChange('email', e.target.value)}
-                                        className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-sm"
+                                        className="w-full text-black p-2 border rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 "
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Phone</label>
+                                    <label className="text-block text-xs font-semibold uppercase tracking-wider mb-1">Phone</label>
                                     <input
                                         type="text"
                                         value={data.phone}
                                         onChange={(e) => handleChange('phone', e.target.value)}
-                                        className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-sm"
+                                        className="w-full text-black p-2 border rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 "
                                     />
                                 </div>
                             </div>
                             <div>
-                                <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Location</label>
+                                <label className="text-block text-xs font-semibold uppercase tracking-wider mb-1">Location</label>
                                 <input
                                     type="text"
                                     value={data.location}
                                     onChange={(e) => handleChange('location', e.target.value)}
-                                    className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-sm"
+                                    className="w-full text-black p-2 border rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 "
                                 />
                             </div>
                             <div>
-                                <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Website</label>
+                                <label className="text-block text-xs font-semibold uppercase tracking-wider mb-1">Website</label>
                                 <input
                                     type="text"
                                     value={data.website || ''}
                                     onChange={(e) => handleChange('website', e.target.value)}
-                                    className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-sm"
+                                    className="w-full text-black p-2 border rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 "
                                 />
                             </div>
                             <div>
-                                <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1">Summary</label>
+                                <label className="text-block text-xs font-semibold uppercase tracking-wider mb-1">Summary</label>
                                 <textarea
                                     value={data.summary}
                                     onChange={(e) => handleChange('summary', e.target.value)}
                                     rows={4}
-                                    className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-sm"
+                                    className="w-full text-black p-2 border rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 "
                                 />
                             </div>
                         </div>
@@ -161,7 +161,7 @@ export default function ResumeEditor({ data, onChange }: EditorProps) {
                                                 placeholder="Company Name"
                                                 value={exp.company}
                                                 onChange={(e) => handleArrayChange<Experience>('experience', index, 'company', e.target.value)}
-                                                className="w-full font-medium border-b border-transparent focus:border-blue-500 outline-none text-sm"
+                                                className="w-full font-medium text-black border-b border-transparent focus:border-blue-500 outline-none text-sm"
                                             />
                                         </div>
                                         <div>
@@ -170,7 +170,7 @@ export default function ResumeEditor({ data, onChange }: EditorProps) {
                                                 placeholder="Position"
                                                 value={exp.position}
                                                 onChange={(e) => handleArrayChange<Experience>('experience', index, 'position', e.target.value)}
-                                                className="w-full border-b border-transparent focus:border-blue-500 outline-none text-sm"
+                                                className="w-full text-black border-b border-transparent focus:border-blue-500 outline-none text-sm"
                                             />
                                         </div>
                                         <div className="flex gap-2">
@@ -179,14 +179,14 @@ export default function ResumeEditor({ data, onChange }: EditorProps) {
                                                 placeholder="Start Date"
                                                 value={exp.startDate}
                                                 onChange={(e) => handleArrayChange<Experience>('experience', index, 'startDate', e.target.value)}
-                                                className="w-1/2 text-xs border-b border-transparent focus:border-blue-500 outline-none"
+                                                className="w-1/2 text-xs text-black border-b border-transparent focus:border-blue-500 outline-none"
                                             />
                                             <input
                                                 type="text"
                                                 placeholder="End Date"
                                                 value={exp.endDate}
                                                 onChange={(e) => handleArrayChange<Experience>('experience', index, 'endDate', e.target.value)}
-                                                className="w-1/2 text-xs border-b border-transparent focus:border-blue-500 outline-none"
+                                                className="w-1/2 text-xs text-black border-b border-transparent focus:border-blue-500 outline-none"
                                             />
                                         </div>
                                         <div>
@@ -195,7 +195,7 @@ export default function ResumeEditor({ data, onChange }: EditorProps) {
                                                 value={exp.description.join('\n')}
                                                 onChange={(e) => handleArrayChange<Experience>('experience', index, 'description', e.target.value.split('\n'))}
                                                 rows={3}
-                                                className="w-full text-xs p-2 border border-gray-200 rounded focus:border-blue-500 outline-none"
+                                                className="w-full text-xs text-black p-2 border border-gray-200 rounded focus:border-blue-500 outline-none"
                                             />
                                         </div>
                                     </div>
@@ -238,7 +238,7 @@ export default function ResumeEditor({ data, onChange }: EditorProps) {
                                                 placeholder="School"
                                                 value={edu.school}
                                                 onChange={(e) => handleArrayChange<Education>('education', index, 'school', e.target.value)}
-                                                className="w-full font-medium border-b border-transparent focus:border-blue-500 outline-none text-sm"
+                                                className="w-full font-medium text-black border-b border-transparent focus:border-blue-500 outline-none text-sm"
                                             />
                                         </div>
                                         <div>
@@ -247,7 +247,7 @@ export default function ResumeEditor({ data, onChange }: EditorProps) {
                                                 placeholder="Degree"
                                                 value={edu.degree}
                                                 onChange={(e) => handleArrayChange<Education>('education', index, 'degree', e.target.value)}
-                                                className="w-full border-b border-transparent focus:border-blue-500 outline-none text-sm"
+                                                className="w-full text-black border-b border-transparent focus:border-blue-500 outline-none text-sm"
                                             />
                                         </div>
                                         <div className="flex gap-2">
@@ -256,14 +256,14 @@ export default function ResumeEditor({ data, onChange }: EditorProps) {
                                                 placeholder="Start Date"
                                                 value={edu.startDate}
                                                 onChange={(e) => handleArrayChange<Education>('education', index, 'startDate', e.target.value)}
-                                                className="w-1/2 text-xs border-b border-transparent focus:border-blue-500 outline-none"
+                                                className="w-1/2 text-xs text-black border-b border-transparent focus:border-blue-500 outline-none"
                                             />
                                             <input
                                                 type="text"
                                                 placeholder="End Date"
                                                 value={edu.endDate}
                                                 onChange={(e) => handleArrayChange<Education>('education', index, 'endDate', e.target.value)}
-                                                className="w-1/2 text-xs border-b border-transparent focus:border-blue-500 outline-none"
+                                                className="w-1/2 text-xs text-black border-b border-transparent focus:border-blue-500 outline-none"
                                             />
                                         </div>
                                     </div>
@@ -305,14 +305,14 @@ export default function ResumeEditor({ data, onChange }: EditorProps) {
                                             placeholder="Category Name"
                                             value={skillGroup.category}
                                             onChange={(e) => handleArrayChange<Skill>('skills', index, 'category', e.target.value)}
-                                            className="w-full font-medium border-b border-transparent focus:border-blue-500 outline-none text-sm"
+                                            className="w-full font-medium text-black border-b border-transparent focus:border-blue-500 outline-none text-sm"
                                         />
                                         <textarea
                                             placeholder="Skills (comma separated)"
                                             value={skillGroup.items.join(', ')}
                                             onChange={(e) => handleArrayChange<Skill>('skills', index, 'items', e.target.value.split(',').map(s => s.trim()))}
                                             rows={2}
-                                            className="w-full text-xs p-2 border border-gray-200 rounded focus:border-blue-500 outline-none"
+                                            className="w-full text-xs text-black p-2 border border-gray-200 rounded focus:border-blue-500 outline-none"
                                         />
                                     </div>
                                 </div>
