@@ -34,104 +34,49 @@ async function extractTextFromDOCX(buffer: Buffer): Promise<string> {
 }
  
 async function analyzeResumeWithAI(resumeText: string): Promise<any> { 
-  const prompt = `You are a professional ATS resume evaluator, HR expert, and career coach.
+  const prompt = `You are an expert resume reviewer and career advisor. Analyze the following resume and provide a comprehensive evaluation.
 
-You will be given extracted text from a PDF uploaded by a user.
+RESUME CONTENT:
+${resumeText}
 
-IMPORTANT VALIDATION RULES (MUST FOLLOW):
-1. First, determine whether the provided text is a REAL resume.
-2. If the content is NOT a resume (random text, blank, invoice, book, certificate, unrelated PDF, garbage text, or very short content under 150 words):
-   - Set ALL scores to 0
-   - Return the message: "Please upload a valid resume PDF"
-   - Do NOT analyze further
-3. Do NOT assume or invent information that is not present in the resume.
-4. Be strict, realistic, and ATS-focused.
-5. Output ONLY valid JSON. No markdown, no explanation, no extra text.
-
-RESUME TEXT:
-{{resumeText}}
-
-------------------------------------
-ANALYSIS INSTRUCTIONS (ONLY IF VALID RESUME):
-
-Evaluate the resume based on:
-- ATS compatibility
-- Keyword optimization
-- Formatting & structure
-- Experience quality
-- Skills relevance
-
-SCORING RULES:
-- Scores must reflect actual resume quality
-- Missing sections (summary, skills, experience, education) must reduce scores
-- No resume is perfect — avoid giving 95+ unless truly exceptional
-- Freshers with no experience should score lower in experienceScore
-- Poor formatting or paragraphs instead of bullets should reduce formattingScore
-
-------------------------------------
-REQUIRED JSON RESPONSE FORMAT:
-
-{
-  "isValidResume": true | false,
-  "message": "<short validation message>",
-  "overallScore": <number 0-100>,
-
-  "sectionScores": {
-    "atsScore": <number 0-100>,
-    "keywordScore": <number 0-100>,
-    "formattingScore": <number 0-100>,
-    "experienceScore": <number 0-100>,
-    "skillsScore": <number 0-100>
-  },
-
+Please analyze this resume and provide a detailed evaluation in the following JSON format:
+{ 
+  "score": <number between 0-100>,
   "strengths": [
-    "<clear, resume-based strength>",
-    "<clear, resume-based strength>",
-    "<clear, resume-based strength>"
+    "<specific strength 1>",
+    "<specific strength 2>", 
+    "<specific strength 3>"
   ],
-
   "weaknesses": [
-    "<specific weakness found in resume>",
-    "<specific weakness found in resume>",
-    "<specific weakness found in resume>"
-  ],
-
+    "<specific weakness 1>",
+    "<specific weakness 2>",
+    "<specific weakness 3>"
+  ], 
   "suggestions": [
-    "<very actionable improvement>",
-    "<very actionable improvement>",
-    "<very actionable improvement>"
+    "<actionable suggestion 1>",
+    "<actionable suggestion 2>",
+    "<actionable suggestion 3>"
   ],
-
   "missingKeywords": [
-    "<important missing keyword>",
-    "<important missing keyword>",
-    "<important missing keyword>"
-  ],
-
-  "summary": "<2–3 sentence professional evaluation of the resume>"
+    "<missing keyword 1>",
+    "<missing keyword 2>"
+  ], 
+  "atsScore": <number between 0-100>,
+  "keywordScore": <number between 0-100>,
+  "formattingScore": <number between 0-100>,
+  "experienceScore": <number between 0-100>,
+  "skillsScore": <number between 0-100>,
+  "summary": "<brief 2-3 sentence summary of the resume's overall quality>"
 }
 
-------------------------------------
-IF INVALID RESUME, RETURN EXACTLY THIS STRUCTURE:
+Evaluation Criteria: 
+1. ATS Friendliness (atsScore): Check formatting, structure, use of standard sections, file compatibility
+2. Keyword Optimization (keywordScore): Relevance of keywords, industry-specific terms, action verbs
+3. Formatting & Structure (formattingScore): Consistency, readability, professional appearance, section organization
+4. Experience Clarity (experienceScore): Clear job descriptions, quantifiable achievements, relevant experience
+5. Skills Relevance (skillsScore): Appropriate skills listed, technical and soft skills balance
 
-{
-  "isValidResume": false,
-  "message": "Please upload a valid resume PDF",
-  "overallScore": 0,
-  "sectionScores": {
-    "atsScore": 0,
-    "keywordScore": 0,
-    "formattingScore": 0,
-    "experienceScore": 0,
-    "skillsScore": 0
-  },
-  "strengths": [],
-  "weaknesses": [],
-  "suggestions": [],
-  "missingKeywords": [],
-  "summary": ""
-}
-`;
+Provide specific, actionable feedback. Be constructive and professional. Return ONLY valid JSON, no additional text.`;
 
   // Using llama-3.1-8b-instant - fast and efficient model
   const modelsToTry = ["llama-3.1-8b-instant"];
