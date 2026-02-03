@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import {
@@ -54,7 +54,7 @@ function getScoreLabel(score: number): string {
   return "Needs Improvement";
 }
 
-export default function ResultsPage() {
+function ResultsContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [analysis, setAnalysis] = useState<AnalysisResult | null>(null);
@@ -330,5 +330,20 @@ export default function ResultsPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function ResultsPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center">
+        <div className="text-center">
+          <Loader2 className="w-12 h-12 animate-spin mx-auto mb-4 text-blue-600" />
+          <p className="text-gray-600">Loading your analysis...</p>
+        </div>
+      </div>
+    }>
+      <ResultsContent />
+    </Suspense>
   );
 }
