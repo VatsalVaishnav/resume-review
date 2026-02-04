@@ -20,6 +20,12 @@ const templates = [
         description: "Simple and distraction-free design that focuses on content.",
         color: "bg-gray-900",
     },
+    {
+        id: "creative",
+        name: "Creative Modern",
+        description: "Bold colors and distinctive layout for standing out.",
+        color: "bg-teal-600",
+    },
 ];
 
 export default function TemplatesPage() {

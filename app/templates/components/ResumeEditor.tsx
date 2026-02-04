@@ -66,7 +66,7 @@ export default function ResumeEditor({ data, onChange }: EditorProps) {
                     {expandedSection === 'personal' && (
                         <div className="p-4 space-y-3 bg-white">
                             <div>
-                                <label className="text-block text-xs font-semibold uppercase tracking-wider mb-1">Full Name</label>
+                                <label className=" text-xs font-semibold uppercase text-black mb-1">Full Name</label>
                                 <input
                                     type="text"
                                     value={data.fullName}
@@ -75,7 +75,7 @@ export default function ResumeEditor({ data, onChange }: EditorProps) {
                                 />
                             </div>
                             <div>
-                                <label className="text-block text-xs font-semibold uppercase tracking-wider mb-1">Job Title</label>
+                                <label className="text-black text-xs font-semibold uppercase tracking-wider mb-1">Job Title</label>
                                 <input
                                     type="text"
                                     value={data.title}
@@ -85,7 +85,7 @@ export default function ResumeEditor({ data, onChange }: EditorProps) {
                             </div>
                             <div className="grid grid-cols-2 gap-3">
                                 <div>
-                                    <label className="text-block text-xs font-semibold uppercase tracking-wider mb-1">Email</label>
+                                    <label className="text-black text-xs font-semibold uppercase tracking-wider mb-1">Email</label>
                                     <input
                                         type="email"
                                         value={data.email}
@@ -94,7 +94,7 @@ export default function ResumeEditor({ data, onChange }: EditorProps) {
                                     />
                                 </div>
                                 <div>
-                                    <label className="text-block text-xs font-semibold uppercase tracking-wider mb-1">Phone</label>
+                                    <label className="text-black text-xs font-semibold uppercase tracking-wider mb-1">Phone</label>
                                     <input
                                         type="text"
                                         value={data.phone}
@@ -104,7 +104,7 @@ export default function ResumeEditor({ data, onChange }: EditorProps) {
                                 </div>
                             </div>
                             <div>
-                                <label className="text-block text-xs font-semibold uppercase tracking-wider mb-1">Location</label>
+                                <label className="text-black text-xs font-semibold uppercase tracking-wider mb-1">Location</label>
                                 <input
                                     type="text"
                                     value={data.location}
@@ -113,7 +113,7 @@ export default function ResumeEditor({ data, onChange }: EditorProps) {
                                 />
                             </div>
                             <div>
-                                <label className="text-block text-xs font-semibold uppercase tracking-wider mb-1">Website</label>
+                                <label className="text-black text-xs font-semibold uppercase tracking-wider mb-1">Website</label>
                                 <input
                                     type="text"
                                     value={data.website || ''}
@@ -122,7 +122,7 @@ export default function ResumeEditor({ data, onChange }: EditorProps) {
                                 />
                             </div>
                             <div>
-                                <label className="text-block text-xs font-semibold uppercase tracking-wider mb-1">Summary</label>
+                                <label className="text-black text-xs font-semibold uppercase tracking-wider mb-1">Summary</label>
                                 <textarea
                                     value={data.summary}
                                     onChange={(e) => handleChange('summary', e.target.value)}
