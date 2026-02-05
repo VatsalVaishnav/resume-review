@@ -9,6 +9,8 @@ import ModernTemplate from "../components/ModernTemplate";
 import ClassicTemplate from "../components/ClassicTemplate";
 import MinimalTemplate from "../components/MinimalTemplate";
 import CreativeTemplate from "../components/CreativeTemplate";
+import ProfessionalTemplate from "../components/ProfessionalTemplate";
+import ElegantTemplate from "../components/ElegantTemplate";
 import ResumeEditor from "../components/ResumeEditor";
 
 export default function TemplateView({ params }: { params: Promise<{ slug: string }> }) {
@@ -37,6 +39,10 @@ export default function TemplateView({ params }: { params: Promise<{ slug: strin
                 return <MinimalTemplate data={resumeData} />;
             case "creative":
                 return <CreativeTemplate data={resumeData} />;
+            case "professional":
+                return <ProfessionalTemplate data={resumeData} />;
+            case "elegant":
+                return <ElegantTemplate data={resumeData} />;
             default:
                 return <div className="p-8 text-center text-red-500">Template not found</div>;
         }

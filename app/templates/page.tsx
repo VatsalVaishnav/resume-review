@@ -26,6 +26,18 @@ const templates = [
         description: "Bold colors and distinctive layout for standing out.",
         color: "bg-teal-600",
     },
+    {
+        id: "professional",
+        name: "Professional Corporate",
+        description: "Structured and clean layout for corporate environments.",
+        color: "bg-slate-700",
+    },
+    {
+        id: "elegant",
+        name: "Elegant Serif",
+        description: "Sophisticated design with focus on typography and readability.",
+        color: "bg-amber-700",
+    },
 ];
 
 export default function TemplatesPage() {
