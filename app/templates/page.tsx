@@ -38,12 +38,6 @@ const templates = [
         description: "Sophisticated design with focus on typography and readability.",
         color: "bg-amber-700",
     },
-    {
-        id: "tech",
-        name: "Tech Minimalist",
-        description: "Dark-themed, terminal-inspired design for developers.",
-        color: "bg-slate-900",
-    },
 ];
 
 export default function TemplatesPage() {
